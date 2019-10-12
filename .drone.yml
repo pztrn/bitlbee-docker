@@ -11,7 +11,7 @@ steps:
         from_secret: discord_webhook_id
       webhook_token:
         from_secret: discord_webhook_secret
-      message: 'Starting building **{{repo.name}}#{{build.number}}** @ {{datetime build.started "02-Jan-2006 15:04:05 MST" "Asia/Yekaterinburg"}} (See {{build.link}} for logs).'
+      message: 'Starting building **{{repo.name}}#{{build.number}}@{{build.commit}}** @ {{datetime build.started "02-Jan-2006 15:04:05 MST" "Asia/Yekaterinburg"}} (See {{build.link}} for logs).'
 
   - name: docker
     image: plugins/docker
@@ -24,6 +24,10 @@ steps:
       auto_tag: true
 
   - name: notify-end
+    when:
+      status:
+      - success
+      - failure
     image: appleboy/drone-discord
     settings:
       webhook_id:
@@ -32,7 +36,7 @@ steps:
         from_secret: discord_webhook_secret
       message: "
         {{#success build.status}}
-          build {{build.number}} deployed.
+          **{{repo.name}}#{{build.number}}@{{build.commit}}** deployed.
         {{ else }}
-          build {{build.number}} failed. See {{build.link}}.
+          **{{repo.name}}#{{build.number}}@{{build.commit}}** failed. See {{build.link}}.
         {{/success}}"
