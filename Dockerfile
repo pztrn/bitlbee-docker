@@ -1,13 +1,13 @@
 FROM alpine:latest
 
-ENV BITLBEE_COMMIT=bef5d78031b01c2d443c7c949727c7baca298c9c \
-    DISCORD_COMMIT=aa0bbf2df851b1fd1b27164713121d20c610b7c5 \
-    MATTERMOST_COMMIT=e21f18c4d868bf6db4e3d436eddcaca5da5effe0 \
+ENV BITLBEE_COMMIT=75222ab2b4542ee8b4726feee0d2c65636e3c7e3 \
+    DISCORD_COMMIT=48e96efb860a0633baa98ff7960e40001bbd3b0f \
+    MATTERMOST_COMMIT=158ce2052af9aaf3d1f6f045f0cfba276e0e91cf \
     PUSHBULLET_COMMIT=8a7837c13a3ff445325aa20cf1fb556dbf4a76f0 \
-    ROCKETCHAT_COMMIT=826990b48f41d77e1280f5fa51082ed2f5115ddf \
-    SKYPE_COMMIT=2f5a3e2413c9c69722d26fb4432190cf1f6458d9 \
-    SLACK_COMMIT=be97802c7fd0b611722d2f551756e2a2672f6084 \
-    TELEGRAM_COMMIT=44a1349bf4c57e8b648dae113ec7cf3bdbde0789 \
+    ROCKETCHAT_COMMIT=5da3e14b5b57f5fe7dd58f176ff1433fe5397c0d \
+    SKYPE_COMMIT=f836eebcda6eba6e321d5baa2efd1934ab43ed1d \
+    SLACK_COMMIT=b61b4dd07987edde84ba7dcdef12746a32f37ebe \
+    TELEGRAM_COMMIT=323cab7698e3830db797422a2ad2f6bb2678d272 \
     VK_COMMIT=51a91c83561741996a07af46cba512b9c86b8e98 \
     RUNTIME_DEPS=" \
     cyrus-sasl \
@@ -123,7 +123,7 @@ RUN apk add --no-cache --virtual build-dependencies \
     mercurial \
     pidgin-dev; \
     cd /root; \
-    hg clone -U https://bitbucket.org/EionRobb/purple-rocketchat; \
+    hg clone -U https://github.com/EionRobb/purple-rocketchat; \
     cd purple-rocketchat; \
     hg update ${ROCKETCHAT_COMMIT}; \
     make; \
