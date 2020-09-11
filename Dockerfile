@@ -8,7 +8,6 @@ ENV BITLBEE_COMMIT=75222ab2b4542ee8b4726feee0d2c65636e3c7e3 \
     SKYPE_COMMIT=f836eebcda6eba6e321d5baa2efd1934ab43ed1d \
     SLACK_COMMIT=b61b4dd07987edde84ba7dcdef12746a32f37ebe \
     TELEGRAM_COMMIT=323cab7698e3830db797422a2ad2f6bb2678d272 \
-    VK_COMMIT=51a91c83561741996a07af46cba512b9c86b8e98 \
     RUNTIME_DEPS=" \
     cyrus-sasl \
     cyrus-sasl-crammd5 \
@@ -181,27 +180,6 @@ RUN apk add --no-cache --virtual build-dependencies \
     make; \
     make install; \
     strip /usr/lib/purple-2/telegram-purple.so; \
-    rm -rf /root; \
-    mkdir /root; \
-    apk del --purge build-dependencies
-
-# vkontakte
-RUN apk add --no-cache --virtual build-dependencies \
-    build-base \
-    cmake \
-    libtool \
-    libxml2-dev \
-    mercurial \
-    pidgin-dev; \
-    cd /root; \
-    hg clone -U https://bitbucket.org/olegoandreev/purple-vk-plugin; \
-    cd purple-vk-plugin; \
-    hg update ${VK_COMMIT}; \
-    cd build; \
-    cmake ..; \
-    make; \
-    make install; \
-    strip /usr/lib/purple-2/libpurple-vk-plugin.so; \
     rm -rf /root; \
     mkdir /root; \
     apk del --purge build-dependencies

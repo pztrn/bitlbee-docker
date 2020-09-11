@@ -11,7 +11,6 @@ Currently available plugins:
 * [Skype](https://github.com/EionRobb/skype4pidgin)
 * [Slack](https://github.com/dylex/slack-libpurple)
 * [Telegram](https://github.com/majn/telegram-purple)
-* [VK](https://bitbucket.org/olegoandreev/purple-vk-plugin) (warning - might not work!)
 
 ## ToDos (maybe or not)
 
