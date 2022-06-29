@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM code.pztrn.name/containers/mirror/alpine:3.16.0
 
 ENV BITLBEE_COMMIT=75222ab2b4542ee8b4726feee0d2c65636e3c7e3 \
     DISCORD_COMMIT=48e96efb860a0633baa98ff7960e40001bbd3b0f \
@@ -13,7 +13,6 @@ ENV BITLBEE_COMMIT=75222ab2b4542ee8b4726feee0d2c65636e3c7e3 \
     cyrus-sasl-crammd5 \
     cyrus-sasl-digestmd5 \
     cyrus-sasl-scram \
-    cyrus-sasl-plain \
     glib \
     gnutls \
     json-glib \
@@ -22,7 +21,6 @@ ENV BITLBEE_COMMIT=75222ab2b4542ee8b4726feee0d2c65636e3c7e3 \
     libotr \
     libpurple \
     libpurple-bonjour \
-    libpurple-oscar \
     libpurple-xmpp \
     libsasl \
     openldap \
